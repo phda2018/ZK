@@ -74,6 +74,7 @@ public class ZkOperateUtil {
 		zkCon.getData();
 		Thread.sleep(20*1000);
 		
+		
 	}
 
 }
