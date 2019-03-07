@@ -23,7 +23,7 @@ public class ZkConnect {
 	
 	public ZooKeeper connect() {
 		try {
-			ZooKeeper zk = new ZooKeeper("172.20.0.202:2181", 1000*10, new watcherUtil( this.c ));
+			ZooKeeper zk = new ZooKeeper("192.168.9.92:2181", 1000*10, new watcherUtil( this.c ));
 			System.out.println("等待zookeeper连接");
 			c.await();
 			return zk;
@@ -42,7 +42,6 @@ public class ZkConnect {
 		
 		ZkConnect zk = new ZkConnect();
 		zk.connect();//建立zookeeper 连接
-		
 		try {
 			Thread.sleep(10*1000);
 		} catch (InterruptedException e) {
