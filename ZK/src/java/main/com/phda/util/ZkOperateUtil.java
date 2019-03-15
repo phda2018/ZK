@@ -42,7 +42,7 @@ public class ZkOperateUtil {
 	public void getData() {
 		try {
 			System.out.println("run getData");
-			byte[] znodeData = zk.getData("/phdaNode", new Watcher() {
+			/*byte[] znodeData = zk.getData("/phdaNode", new Watcher() {
 				@Override
 				public void process(WatchedEvent event) {
 					// TODO Auto-generated method stub
@@ -50,8 +50,9 @@ public class ZkOperateUtil {
 					System.out.println("获取数据，回调函数:"+event.getType());
 				}
 				
-			}, new Stat());
+			}, new Stat());*/ //自定义监听器
 			
+			byte[] znodeData = zk.getData("/phdaNode", true, new Stat());
 			System.out.println("获取数据:"+new String(znodeData));
 			
 		} catch (KeeperException e) {
@@ -65,6 +66,7 @@ public class ZkOperateUtil {
 	public void findNode() {
 		//zk.getData(path, watch, stat);
 		//zk.exists(path, watch)
+		//zk.
 	}	
 	
 	public static void main(String[] args) throws InterruptedException {
@@ -72,7 +74,7 @@ public class ZkOperateUtil {
 		ZkOperateUtil zkCon = new ZkOperateUtil();
 		//zk.CreateNode("/phdaNode1", "phdaNode");
 		zkCon.getData();
-		Thread.sleep(20*1000);
+		Thread.sleep(100*1000);
 		
 		
 	}
